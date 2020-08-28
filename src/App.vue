@@ -17,7 +17,6 @@
     data () {
       return {
         
-        
         items: [
           { id: 1, name: 'name01' },
         ],
