@@ -49,3 +49,153 @@
   }
 }
 </style> -->
+
+
+
+<!-- <template>
+  <div>    
+    <svg 
+      
+    >
+      
+      <polygon class="item" 
+        v-for="(item, index) in items" 
+        :key="index" 
+        //points="200,300 200,350 400,250" 
+        fill="tomato"
+        
+        @click="click($event)"
+        @mousedown="touchstart($event)"
+        :points="polygon.points"
+      />
+      
+    </svg>
+  </div>
+</template>
+
+<script>
+  
+
+  export default {
+    name: "app",
+    
+    data () {
+      return {
+        
+        items: [
+          { id: 1, name: 'name01', 
+          points: 200,300 200,350 400,250 },
+        ],
+      }
+    },
+    methods: {
+      click: function(e) {
+        console.log("クリックした");
+      },
+      touchstart: function(e) {
+        console.log("タッチスタート");
+      }
+    }
+  }
+</script>
+
+<style>
+  svg {
+    height: 1000px;
+    width: 1000px;
+    background-color: lightgray;
+  }
+  .item:hover {
+    cursor: grab;
+  }
+  .item:active {
+    cursor: grabbing;
+  }
+</style> -->
+
+
+
+<!-- <template>
+  <div>    
+    <svg @mousemove="touchmove($event)" 
+    @mouseup="touchend($event)" 
+    @mouseleave="touchend($event)"  
+    >
+      <line v-for="line in lines" 
+      @mousedown="touchstart($event)" 
+      :x1="line.x1" :y1="line.y1" :x2="line.x2" :y2="line.y2" 
+      :stroke-width="line.width" 
+      :stroke="line.stroke"/>
+    </svg>
+  </div>
+</template>
+
+<script>
+  
+
+  export default {
+    name: "app",
+    
+    data () {
+      return {
+        lines : [
+          {x1 : 200,y1 : 100,x2 : 400,y2 : 300,stroke : "rgb(255,0,0)",width : 50,},
+          {x1 : 400,y1 : 100,x2 : 200,y2 : 300,stroke : "rgb(255,0,0)",width : 50,}
+        ],
+        prev_pos : {
+          x : 0,
+          y : 0,
+        },
+        // 押下中だったらtrue
+        is_mousedown : false,
+      }
+    },
+    methods : {
+      touchstart : function(e){
+        this.is_mousedown = true;
+        console.log("touch start:%d,%d", e.offsetX, e.offsetY);
+        this.prev_pos.x = e.offsetX;
+        this.prev_pos.y = e.offsetY;
+      },
+      touchmove : function(e){
+        // 押下中だったら
+        if(this.is_mousedown){
+          // 前回座標との差分を算出
+          let moved_x = e.offsetX - this.prev_pos.x;
+          let moved_y = e.offsetY - this.prev_pos.y;
+      
+            // 全要素に差分を適用
+            for(let line of this.lines){
+              line.x1 += moved_x;
+              line.x2 += moved_x;
+              line.y1 += moved_y;
+              line.y2 += moved_y;
+            }
+      
+          // 前回のクリック座標を更新
+          this.prev_pos.x = e.offsetX;
+          this.prev_pos.y = e.offsetY;
+        }
+      },
+      touchend : function(e){
+        this.is_mousedown = false;
+        console.log("touch end");
+      }
+    }
+    
+  }
+</script>
+
+<style>
+  svg {
+    height: 1000px;
+    width: 1000px;
+    background-color: lightgray;
+  }
+  .item:hover {
+    cursor: grab;
+  }
+  .item:active {
+    cursor: grabbing;
+  }
+</style> -->
