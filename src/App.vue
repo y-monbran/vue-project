@@ -167,21 +167,9 @@ export default {
 </script>
 
 <style>
-.text {
-  font-size:35px;
-}
 svg {
   width : 1000px;
   height: 500px;
   background-color: silver;
-  polygon {
-    background-color: black;
-    fill: black;
-  }
 }
-polygon {
-  background-color: black;
-  fill: black;
-}
-
 </style>
