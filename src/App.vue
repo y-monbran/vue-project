@@ -167,6 +167,14 @@ export default {
 </script>
 
 <style>
+.text {
+  height:50px;
+  width:1000px;
+  font-size:35px;
+  text-align: center;
+  background-color: tomato;
+}
+
 svg {
   width : 1000px;
   height: 500px;
